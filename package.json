@@ -1,0 +1,16 @@
+{
+  "name": "mm.photography.messagegenerator",
+  "version": "1.0.0",
+  "description": "Generates messages to send to Martinez Media Photography clients.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martinez Media, LLC",
+  "license": "ISC",
+  "dependencies": {
+    "clipboardy": "^1.1.4",
+    "openurl": "^1.1.1",
+    "prompt": "^1.0.0"
+  }
+}
