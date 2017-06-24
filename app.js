@@ -5,12 +5,21 @@ var prompt = require('prompt'),
     GalleryDescriptionMessageGenerator = require('./lib/GalleryDescriptionMessageGenerator'),
     EventDescriptionMessageGenerator = require('./lib/EventDescriptionMessageGenerator'),
     generators = [
+        {
+            generate: function () {
+                return 0;
+            },
+            name: 'Exit'
+        },
         new YourPhotosAreDoneMessageGenerator(console, prompt, clipboardy, openurl),
         new GalleryDescriptionMessageGenerator(console, prompt, clipboardy),
         new EventDescriptionMessageGenerator(console, prompt, clipboardy)
     ];
 
 function init() {
+    // For more info on prompt, https://github.com/flatiron/prompt
+    prompt.message = '';
+    prompt.delimiter = ':';
     prompt.start();
 
     console.log('Which message would you like to generate?');
@@ -30,7 +39,7 @@ function init() {
         }
     }, function (err, result) {
         if (err) {
-            return onError(err);
+            return console.error(err);
         }
 
         var generator = generators[result.message];
